@@ -74,8 +74,6 @@ class Authemail(API):
         payload = {
             'email': kwargs.pop('email'),
             'password': kwargs.pop('password'),
-            'first_name': kwargs.pop('first_name'),
-            'last_name': kwargs.pop('last_name'),
         }
 
         response = self._POST(path, kwargs, payload)

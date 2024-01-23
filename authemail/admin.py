@@ -76,7 +76,6 @@ class EmailChangeCodeInline(admin.TabularInline):
 class EmailUserAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        (_('Personal Info'), {'fields': ('first_name', 'last_name')}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
                                        'groups', 'user_permissions')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
@@ -90,9 +89,8 @@ class EmailUserAdmin(UserAdmin):
     form = EmailUserChangeForm
     add_form = EmailUserCreationForm
     inlines = [SignupCodeInline, EmailChangeCodeInline, PasswordResetCodeInline]
-    list_display = ('email', 'is_verified', 'first_name', 'last_name',
-                    'is_staff')
-    search_fields = ('first_name', 'last_name', 'email')
+    list_display = ('email', 'is_verified', 'is_staff')
+    search_fields = ('email',)
     ordering = ('email',)
 
 
